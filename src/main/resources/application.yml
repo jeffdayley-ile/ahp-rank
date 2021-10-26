@@ -1,0 +1,8 @@
+management.endpoints.web.exposure.include: 'health,info'
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:ahp
+    driver-class-name: org.h2.Driver
+    username: ahp
+    password: simpleAHP
