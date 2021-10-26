@@ -8,10 +8,18 @@
     "options": {
       "option1": {
         "totalScore": 0.34,
+        "criterionScores": {
+          "criterion1": 0.220,
+          "criterion2": 0.259
+        },
         "rank": 2
       },
       "option2": {
         "totalScore": 0.66,
+        "criterionScores": {
+          "criterion1": 0.420,
+          "criterion2": 0.759
+        },
         "rank": 1
       }
     },

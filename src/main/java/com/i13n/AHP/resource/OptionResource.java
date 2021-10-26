@@ -1,12 +1,12 @@
 package com.i13n.AHP.resource;
 
-public class Option {
+public class OptionResource {
     final private String name;
     final private Integer rank;
     final private Double score;
     final private Criterion criterion;
 
-    public Option(String name, Integer rank, Double score, Criterion criterion) {
+    public OptionResource(String name, Integer rank, Double score, Criterion criterion) {
         this.name = name;
         this.rank = rank;
         this.score = score;

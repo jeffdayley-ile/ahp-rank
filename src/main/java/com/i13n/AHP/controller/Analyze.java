@@ -1,14 +1,7 @@
-package com.i13n.AHP.Controller;
+package com.i13n.AHP.controller;
 
-import com.i13n.AHP.resource.InputResource;
-import com.i13n.AHP.resource.ResultsResource;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/analyze")
