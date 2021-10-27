@@ -35,12 +35,14 @@ public class AnalysisService {
     }
 
     public Analysis createAnalysis(Analysis analysis) {
+        analysis.setId(UUID.randomUUID());
         analysisMapper.insert(analysis);
         return analysis;
     }
 
     public AnalysisResource createAnalysisResource(AnalysisResource analysisResource) {
-        createAnalysis(analysisResourceToAnalysis(analysisResource));
+        Analysis analysis = createAnalysis(analysisResourceToAnalysis(analysisResource));
+        analysisResource.setId(analysis.getId());
         return analysisResource;
     }
 
