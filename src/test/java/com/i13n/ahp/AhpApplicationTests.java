@@ -1,4 +1,4 @@
-package com.i13n.AHP;
+package com.i13n.ahp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

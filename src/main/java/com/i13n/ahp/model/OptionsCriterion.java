@@ -1,8 +1,8 @@
-package com.i13n.AHP.model;
+package com.i13n.ahp.model;
 
 import java.util.UUID;
 
-public class OptionsCriterionScoresModel {
+public class OptionsCriterion {
     private UUID id;
     private UUID analysisId;
     private UUID criterionId;

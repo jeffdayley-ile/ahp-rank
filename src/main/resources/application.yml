@@ -1,9 +1,10 @@
 spring:
   datasource:
     url: jdbc:h2:mem:ahp
+#    url: jdbc:h2:~/data/h2/ahp/ahp
     driver-class-name: org.h2.Driver
-    username: ahp
-    password: simpleAHP
+    username: SA
+    password:
   data:
     jpa:
       repositories:
@@ -12,7 +13,21 @@ spring:
     console:
       enabled: true
 
+
 mybatis:
-  mapper-locations: classpath:db/*.xml
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.i13n.ahp.model
+  type-handlers-package: com.i13n.ahp.model.mybatis
+#    - com.i13n.ahp.model.Analysis
+#    - com.i13n.ahp.model.Criteria
+#    - com.i13n.ahp.model.Options
+#    - com.i13n.ahp.model.OptionsCriterion
 
 management.endpoints.web.exposure.include: 'health,info'
+logging:
+  file:
+    name: ~/spring-boot.log
+
+logging.level.org.springframework: WARN
+logging.level.com.i13n.ahp.model.AnalysisMapper: DEBUG
+

@@ -1,4 +1,4 @@
-package com.i13n.AHP;
+package com.i13n.ahp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
