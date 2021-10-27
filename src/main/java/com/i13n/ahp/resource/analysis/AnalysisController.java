@@ -1,4 +1,4 @@
-package com.i13n.ahp.resource;
+package com.i13n.ahp.resource.analysis;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

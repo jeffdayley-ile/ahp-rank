@@ -1,4 +1,4 @@
-package com.i13n.ahp.resource;
+package com.i13n.ahp.resource.analysis;
 
 import java.util.UUID;
 

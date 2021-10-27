@@ -1,4 +1,4 @@
-package com.i13n.ahp.resource;
+package com.i13n.ahp.resource.analysis;
 
 import com.i13n.ahp.model.Analysis;
 import com.i13n.ahp.model.AnalysisMapper;

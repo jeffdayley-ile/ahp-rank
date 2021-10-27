@@ -1,7 +1,7 @@
 package com.i13n.ahp.utils;
 
 import com.i13n.ahp.model.Analysis;
-import com.i13n.ahp.resource.AnalysisResource;
+import com.i13n.ahp.resource.analysis.AnalysisResource;
 
 public class AnalysisUtils {
 
