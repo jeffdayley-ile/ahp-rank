@@ -19,7 +19,6 @@ public class AnalysisController {
         this.analysisService = analysisService;
     }
 
-    // TODO: Get all analysis
     @GetMapping(produces = ANALYSIS_TYPE)
     public ResponseEntity<List<AnalysisResource>> getAll() {
         List<AnalysisResource> analysisResources = AnalysisService.getAllAnalysisResources();

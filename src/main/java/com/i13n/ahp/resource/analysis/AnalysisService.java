@@ -40,7 +40,7 @@ public class AnalysisService {
     }
 
     public AnalysisResource createAnalysisResource(AnalysisResource analysisResource) {
-        Analysis analysis = createAnalysis(analysisResourceToAnalysis(analysisResource));
+        createAnalysis(analysisResourceToAnalysis(analysisResource));
         return analysisResource;
     }
 
