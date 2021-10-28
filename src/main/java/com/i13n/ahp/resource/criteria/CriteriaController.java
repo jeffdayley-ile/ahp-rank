@@ -11,7 +11,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/criteria")
 public class CriteriaController {
-    public static final String CRITERIA_TYPE = "application/vnd.criteria.v1+json";
+    public static final java.lang.String CRITERIA_TYPE = "application/vnd.criteria.v1+json";
 
     public final CriteriaService criteriaService;
 

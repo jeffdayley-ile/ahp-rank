@@ -11,7 +11,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/options")
 public class OptionsController {
-    public static final String OPTIONS_TYPE = "application/vnd.options.v1+json";
+    public static final java.lang.String OPTIONS_TYPE = "application/vnd.options.v1+json";
 
     public final OptionsService optionsService;
 

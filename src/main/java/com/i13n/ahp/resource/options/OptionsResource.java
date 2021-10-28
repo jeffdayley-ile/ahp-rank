@@ -5,7 +5,7 @@ import java.util.UUID;
 public class OptionsResource {
     private UUID id;
     private UUID analysisId;
-    private String name;
+    private java.lang.String name;
     private Integer rank;
     private float totalScore;
 
@@ -28,11 +28,11 @@ public class OptionsResource {
         this.analysisId = analysisId;
     }
 
-    public String getName() {
+    public java.lang.String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(java.lang.String name) {
         this.name = name;
     }
 

@@ -5,10 +5,12 @@ import com.i13n.ahp.model.AHPOptionsMapper
 import com.i13n.ahp.model.AnalysisMapper
 import com.i13n.ahp.model.CriteriaMapper
 import com.i13n.ahp.model.OptionsCriterionMapper
+import com.i13n.ahp.resource.input.InputController
+import com.i13n.ahp.resource.input.InputResource
 import com.i13n.ahp.resource.analysis.AnalysisController
 import com.i13n.ahp.resource.analysis.AnalysisResource
 import com.i13n.ahp.resource.criteria.CriteriaController
-import com.i13n.ahp.resource.criteria.CriteriaResource
+import com.i13n.ahp.resource.input.InputReturnResource
 import com.i13n.ahp.resource.options.OptionsController
 import com.i13n.ahp.resource.options.OptionsResource
 import com.i13n.ahp.resource.optionsCriterion.OptionsCriterionController
@@ -53,15 +55,50 @@ class AnalyzeIntegrationTest {
     ObjectMapper objectMapper
 
     @Test
-    void testSimpleAnalysis() {
+    void testAutomaticAnalysis() {
+        // Define Input
+        InputResource inputResource = new InputResource();
+        List<String> criteria = ["cost", "speed"]
+        List<String> options = ["aws", "azure"]
+        Map<String, List<String>> optionsCriterion = [
+                "cost": ["aws", "azure"],
+                "speed": ["azure", "aws"]
+        ]
+
+        inputResource.setCriteria(criteria)
+        inputResource.setOptions(options)
+        inputResource.setOptionsCriterion(optionsCriterion)
+
+        // Post to endpoint
+        MvcResult inputMvcResult = mockMvc.perform(post('/input')
+                .contentType(InputController.AHP_INPUT_TYPE)
+                .content(objectMapper.writeValueAsString(inputResource))
+                .accept(InputController.AHP_INPUT_RETURN_TYPE)
+        ).andReturn()
+
+        assertEquals(SC_CREATED, inputMvcResult.response.status)
+
+        String inputJsonResult = inputMvcResult.response.getContentAsString()
+        InputReturnResource inputReturnResource = objectMapper.readValue(inputJsonResult, InputReturnResource)
+
+        assertNotNull(inputReturnResource.getAnalysisId())
+        assertEquals(inputResource.getCriteria().size(), inputReturnResource.getCriteria().size())
+        assertEquals(inputResource.getOptions().size(), inputReturnResource.getOptions().size())
+        assertEquals(inputResource.getOptions().size() * inputResource.getCriteria().size(),
+            inputReturnResource.getOptionsCriterion().size())
+
+    }
+
+    @Test
+    void testManualAnalysis() {
         // Define Resource for input into analysis
         AnalysisResource analysisResource = new AnalysisResource()
 
-        CriteriaResource criteriaResourceA = new CriteriaResource()
+        OptionsResource criteriaResourceA = new OptionsResource()
         criteriaResourceA.setName("cost")
         criteriaResourceA.setRank(2)
 
-        CriteriaResource criteriaResourceB = new CriteriaResource()
+        OptionsResource criteriaResourceB = new OptionsResource()
         criteriaResourceB.setName("speed")
         criteriaResourceB.setRank(1)
 
@@ -107,13 +144,13 @@ class AnalyzeIntegrationTest {
         assertEquals(SC_CREATED, criteriaBMvcResult.response.status)
 
         // Verify and collect the criteriaId
-        CriteriaResource observedCriteriaResourceA = objectMapper.readValue(
+        OptionsResource observedCriteriaResourceA = objectMapper.readValue(
                 criteriaAMvcResult.response.getContentAsString(),
-                CriteriaResource
+                OptionsResource
         )
-        CriteriaResource observedCriteriaResourceB = objectMapper.readValue(
+        OptionsResource observedCriteriaResourceB = objectMapper.readValue(
                 criteriaBMvcResult.response.getContentAsString(),
-                CriteriaResource
+                OptionsResource
         )
         
         assertNotNull(observedCriteriaResourceA.getId())
