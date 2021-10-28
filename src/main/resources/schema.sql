@@ -31,5 +31,6 @@ CREATE TABLE options_criterion (
     analysis_id     UUID REFERENCES analysis,
     options_id      UUID REFERENCES options,
     criterion_id    UUID REFERENCES criteria,
+    rank            INTEGER NOT NULL,
     score           FLOAT NOT NULL
 );

@@ -1,14 +1,17 @@
-package com.i13n.ahp.model;
+package com.i13n.ahp.resource.optionsCriterion;
 
 import java.util.UUID;
 
-public class OptionsCriterion {
+public class OptionsCriterionResource {
     private UUID id;
     private UUID analysisId;
-    private UUID criterionId;
     private UUID optionsId;
+    private UUID criterionId;
     private Integer rank;
     private float score;
+
+    public OptionsCriterionResource() {
+    }
 
     public UUID getId() {
         return id;
@@ -26,20 +29,20 @@ public class OptionsCriterion {
         this.analysisId = analysisId;
     }
 
-    public UUID getCriterionId() {
-        return criterionId;
-    }
-
-    public void setCriterionId(UUID criterionId) {
-        this.criterionId = criterionId;
-    }
-
     public UUID getOptionsId() {
         return optionsId;
     }
 
     public void setOptionsId(UUID optionsId) {
         this.optionsId = optionsId;
+    }
+
+    public UUID getCriterionId() {
+        return criterionId;
+    }
+
+    public void setCriterionId(UUID criterionId) {
+        this.criterionId = criterionId;
     }
 
     public Integer getRank() {
