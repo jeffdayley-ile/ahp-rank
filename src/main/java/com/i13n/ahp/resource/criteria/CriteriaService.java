@@ -27,8 +27,8 @@ public class CriteriaService {
     }
 
     public static List<CriteriaResource> getAllCriteriaResources() {
-        List<Criteria> analyses = criteriaMapper.findAll();
-        List<CriteriaResource> criteriaResources = analyses.stream()
+        List<Criteria> criteria = criteriaMapper.findAll();
+        List<CriteriaResource> criteriaResources = criteria.stream()
                 .map(CriteriaService::criteriaToCriteriaResource)
                 .collect(Collectors.toList());
         return criteriaResources;

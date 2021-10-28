@@ -24,10 +24,4 @@ mybatis:
 #    - com.i13n.ahp.model.OptionsCriterion
 
 management.endpoints.web.exposure.include: 'health,info'
-logging:
-  file:
-    name: ~/spring-boot.log
-
-logging.level.org.springframework: WARN
-logging.level.com.i13n.ahp.model.AnalysisMapper: DEBUG
 

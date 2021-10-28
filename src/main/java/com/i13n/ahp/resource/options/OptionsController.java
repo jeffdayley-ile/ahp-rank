@@ -33,7 +33,6 @@ public class OptionsController {
     // TODO: Add Validation
     // - Validate analysisId exists in Analysis Table and is not null (update sql)
     // - Validate name is not null
-    // - Validate rank is unique with analysis criterion (ie matching analysisIds)
     // - ID is ignored, not sure if there is anything to do for this.
     @PostMapping(consumes = OPTIONS_TYPE, produces = OPTIONS_TYPE)
     public ResponseEntity<OptionsResource> create(@RequestBody OptionsResource optionsResource) {
