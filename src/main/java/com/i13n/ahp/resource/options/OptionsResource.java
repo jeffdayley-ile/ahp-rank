@@ -1,13 +1,16 @@
-package com.i13n.ahp.model;
+package com.i13n.ahp.resource.options;
 
 import java.util.UUID;
 
-public class Options {
+public class OptionsResource {
     private UUID id;
     private UUID analysisId;
     private String name;
     private Integer rank;
     private float totalScore;
+
+    public OptionsResource() {
+    }
 
     public UUID getId() {
         return id;

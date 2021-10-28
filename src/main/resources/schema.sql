@@ -14,7 +14,7 @@ CREATE TABLE options (
     id          UUID PRIMARY KEY,
     analysis_id UUID REFERENCES analysis,
     name        VARCHAR NOT NULL,
-    rank        INTEGER NOT NULL,
+    rank        INTEGER,
     total_score FLOAT NOT NULL -- Sum of OptionsCriterion Scores
 );
 
