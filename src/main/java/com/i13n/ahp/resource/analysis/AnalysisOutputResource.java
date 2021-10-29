@@ -1,4 +1,4 @@
-package com.i13n.ahp.resource.input;
+package com.i13n.ahp.resource.analysis;
 
 import com.i13n.ahp.resource.criteria.CriteriaResource;
 import com.i13n.ahp.resource.options.OptionsResource;
@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class InputReturnResource {
+public class AnalysisOutputResource {
     private UUID analysisId;
     private List<CriteriaResource> criteria;
     private List<OptionsResource> options;
     private List<OptionsCriterionResource> optionsCriterion;
 
-    public InputReturnResource() {
+    public AnalysisOutputResource() {
     }
 
     public UUID getAnalysisId() {

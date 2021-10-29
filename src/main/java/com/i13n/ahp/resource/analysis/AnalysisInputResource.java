@@ -1,14 +1,14 @@
-package com.i13n.ahp.resource.input;
+package com.i13n.ahp.resource.analysis;
 
 import java.util.List;
 import java.util.Map;
 
-public class InputResource {
+public class AnalysisInputResource {
     private List<String> criteria;
     private List<String> options;
     private Map<String, List<String>> optionsCriterion;
 
-    public InputResource() {
+    public AnalysisInputResource() {
     }
 
     public List<String> getCriteria() {
@@ -34,4 +34,5 @@ public class InputResource {
     public void setOptionsCriterion(Map<String, List<String>> optionsCriterion) {
         this.optionsCriterion = optionsCriterion;
     }
+
 }
