@@ -31,6 +31,7 @@ public class AnalysisController {
         return ResponseEntity.ok(analysisResources);
     }
 
+    // TODO: Return the full AnalysisOutputResource Object
     @GetMapping(path = "/{id}", produces = ANALYSIS_TYPE)
     public ResponseEntity<AnalysisResource> getById(@PathVariable UUID id) {
         return ResponseEntity.of(AnalysisService.getAnalysisResource(id));
