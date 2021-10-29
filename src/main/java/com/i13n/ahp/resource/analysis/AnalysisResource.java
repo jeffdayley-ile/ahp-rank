@@ -5,6 +5,8 @@ import java.util.UUID;
 public class AnalysisResource {
     private UUID id;
 
+    // TODO: Add a description of the analysis
+
     public AnalysisResource() {
     }
 

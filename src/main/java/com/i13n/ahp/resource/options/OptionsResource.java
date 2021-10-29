@@ -6,7 +6,6 @@ public class OptionsResource {
     private UUID id;
     private UUID analysisId;
     private java.lang.String name;
-    private Integer rank;
     private float totalScore;
 
     public OptionsResource() {
@@ -34,14 +33,6 @@ public class OptionsResource {
 
     public void setName(java.lang.String name) {
         this.name = name;
-    }
-
-    public Integer getRank() {
-        return rank;
-    }
-
-    public void setRank(Integer rank) {
-        this.rank = rank;
     }
 
     public float getTotalScore() {

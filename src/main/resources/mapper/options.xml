@@ -6,7 +6,6 @@
         id,
         analysis_id,
         name,
-        rank,
         total_score
     </sql>
 
@@ -14,7 +13,6 @@
         <id column="id" property="id" />
         <result column="analysis_id" property="analysisId" />
         <result column="name" property="name" />
-        <result column="rank" property="rank" />
         <result column="total_score" property="totalScore" />
     </resultMap>
 
@@ -23,7 +21,6 @@
         values (#{options.id},
                 #{options.analysisId},
                 #{options.name},
-                #{options.rank},
                 #{options.totalScore})
     </insert>
 

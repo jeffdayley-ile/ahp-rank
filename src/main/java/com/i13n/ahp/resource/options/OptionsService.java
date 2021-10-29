@@ -59,7 +59,6 @@ public class OptionsService {
         options.setId(optionsResource.getId());
         options.setAnalysisId(optionsResource.getAnalysisId());
         options.setName(optionsResource.getName());
-        options.setRank(optionsResource.getRank());
         options.setTotalScore(optionsResource.getTotalScore());
         return options;
     }
@@ -69,7 +68,6 @@ public class OptionsService {
         optionsResource.setId(options.getId());
         optionsResource.setAnalysisId(options.getAnalysisId());
         optionsResource.setName(options.getName());
-        optionsResource.setRank(options.getRank());
         optionsResource.setTotalScore(options.getTotalScore());
         return optionsResource;
     }

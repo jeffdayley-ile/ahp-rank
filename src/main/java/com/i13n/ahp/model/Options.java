@@ -6,7 +6,6 @@ public class Options {
     private UUID id;
     private UUID analysisId;
     private String name;
-    private Integer rank;
     private float totalScore;
 
     public UUID getId() {
@@ -31,14 +30,6 @@ public class Options {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getRank() {
-        return rank;
-    }
-
-    public void setRank(Integer rank) {
-        this.rank = rank;
     }
 
     public float getTotalScore() {
