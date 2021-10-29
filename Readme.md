@@ -69,7 +69,7 @@ Important items to note about this json body
 ```
 
 ## Sample Response
-```shell
+```json
 {
     "analysisId": "dcafc22f-6b8c-4bf9-bed7-c6f173a46b77",
     "criteria": [
