@@ -1,0 +1,37 @@
+{
+  "resultId": 1,
+  "results": {
+    "winner": {
+      "optionName": "option1",
+      "score": 0.563
+    },
+    "options": {
+      "option1": {
+        "totalScore": 0.34,
+        "criterionScores": {
+          "criterion1": 0.220,
+          "criterion2": 0.259
+        },
+        "rank": 2
+      },
+      "option2": {
+        "totalScore": 0.66,
+        "criterionScores": {
+          "criterion1": 0.420,
+          "criterion2": 0.759
+        },
+        "rank": 1
+      }
+    },
+    "criteria_weights": {
+      "criterion1": {
+        "weight": 0.34,
+        "rank": 2
+      },
+      "criterion2": {
+        "weight": 0.66,
+        "rank": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.i13n.ahp.model.AHPOptionsMapper">
+    <sql id="optionsFields">
+        id,
+        analysis_id,
+        name,
+        total_score
+    </sql>
+
+    <resultMap id="OptionsMap" type="com.i13n.ahp.model.Options" autoMapping="false">
+        <id column="id" property="id" />
+        <result column="analysis_id" property="analysisId" />
+        <result column="name" property="name" />
+        <result column="total_score" property="totalScore" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.i13n.ahp.model.Options" >
+        insert into options (<include refid="optionsFields" />)
+        values (#{options.id},
+                #{options.analysisId},
+                #{options.name},
+                #{options.totalScore})
+    </insert>
+
+    <select id="findAll" resultMap="OptionsMap">
+        select <include refid="optionsFields" />
+        from options
+    </select>
+
+    <select id="findByAnalysisId" resultMap="OptionsMap">
+        select <include refid="optionsFields" />
+        from options
+        where options.analysis_id = #{uuid}
+    </select>
+
+    <select id="findById" resultMap="OptionsMap">
+        select <include refid="optionsFields" />
+        from options
+        where options.id = #{uuid}
+    </select>
+
+</mapper>

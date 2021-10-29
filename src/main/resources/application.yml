@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:ahp
+#    url: jdbc:h2:~/data/h2/ahp/ahp
+    driver-class-name: org.h2.Driver
+    username: SA
+    password:
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: default
+  h2:
+    console:
+      enabled: true
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.i13n.ahp.model
+  type-handlers-package: com.i13n.ahp.model.mybatis
+#    - com.i13n.ahp.model.Analysis
+#    - com.i13n.ahp.model.Criteria
+#    - com.i13n.ahp.model.Options
+#    - com.i13n.ahp.model.OptionsCriterion
+
+management.endpoints.web.exposure.include: 'health,info'
+

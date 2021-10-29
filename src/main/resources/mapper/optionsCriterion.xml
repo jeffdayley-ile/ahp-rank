@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.i13n.ahp.model.OptionsCriterionMapper">
+    <sql id="optionsCriterionFields">
+        id,
+        analysis_id,
+        options_id,
+        criterion_id,
+        rank,
+        score
+    </sql>
+
+    <resultMap id="OptionsCriterionMap" type="com.i13n.ahp.model.OptionsCriterion" autoMapping="false">
+        <id column="id" property="id" />
+        <result column="analysis_id" property="analysisId" />
+        <result column="options_id" property="optionsId" />
+        <result column="criterion_id" property="criterionId" />
+        <result column="rank" property="rank" />
+        <result column="score" property="score" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.i13n.ahp.model.OptionsCriterion" >
+        insert into options_criterion (<include refid="optionsCriterionFields" />)
+        values (#{optionsCriterion.id},
+                #{optionsCriterion.analysisId},
+                #{optionsCriterion.optionsId},
+                #{optionsCriterion.criterionId},
+                #{optionsCriterion.rank},
+                #{optionsCriterion.score})
+    </insert>
+
+    <select id="findAll" resultMap="OptionsCriterionMap">
+        select <include refid="optionsCriterionFields" />
+        from options_criterion
+    </select>
+
+    <select id="findByAnalysisId" resultMap="OptionsCriterionMap">
+        select <include refid="optionsCriterionFields" />
+        from options_criterion
+        where options_criterion.analysis_id = #{uuid}
+    </select>
+
+    <select id="findById" resultMap="OptionsCriterionMap">
+        select <include refid="optionsCriterionFields" />
+        from options_criterion
+        where options_criterion.id = #{uuid}
+    </select>
+
+</mapper>

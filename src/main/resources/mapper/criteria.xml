@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.i13n.ahp.model.CriteriaMapper">
+    <sql id="criteriaFields">
+        id,
+        analysis_id,
+        name,
+        rank,
+        score
+    </sql>
+
+    <resultMap id="CriteriaMap" type="com.i13n.ahp.model.Criteria" autoMapping="false">
+        <id column="id" property="id" />
+        <result column="analysis_id" property="analysisId" />
+        <result column="name" property="name" />
+        <result column="rank" property="rank" />
+        <result column="score" property="score" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.i13n.ahp.model.Criteria" >
+        insert into criteria (<include refid="criteriaFields" />)
+        values (#{criteria.id},
+                #{criteria.analysisId},
+                #{criteria.name},
+                #{criteria.rank},
+                #{criteria.score})
+    </insert>
+
+    <select id="findAll" resultMap="CriteriaMap">
+        select <include refid="criteriaFields" />
+        from criteria
+    </select>
+
+    <select id="findById" resultMap="CriteriaMap">
+        select <include refid="criteriaFields" />
+        from criteria
+        where criteria.id = #{uuid}
+    </select>
+
+    <select id="findByAnalysisId" resultMap="CriteriaMap">
+        select <include refid="criteriaFields" />
+        from criteria
+        where criteria.analysis_id = #{uuid}
+    </select>
+
+</mapper>
