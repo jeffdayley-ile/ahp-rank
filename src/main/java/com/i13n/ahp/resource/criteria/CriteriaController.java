@@ -20,8 +20,17 @@ public class CriteriaController {
     }
 
     @GetMapping(produces = CRITERIA_TYPE)
-    public ResponseEntity<List<CriteriaResource>> getAll() {
-        List<CriteriaResource> criteriaResources = CriteriaService.getAllCriteriaResources();
+    public ResponseEntity<List<CriteriaResource>> getAll(@RequestParam(name = "analysisId", required = false) UUID analysisId) {
+
+        List<CriteriaResource> criteriaResources;
+
+        if (analysisId != null) {
+            criteriaResources = CriteriaService.getAllCriteriaResourcesByAnalysisId(analysisId);
+        }
+        else {
+            criteriaResources = CriteriaService.getAllCriteriaResources();
+        }
+
         return ResponseEntity.ok(criteriaResources);
     }
 

@@ -20,8 +20,16 @@ public class OptionsController {
     }
 
     @GetMapping(produces = OPTIONS_TYPE)
-    public ResponseEntity<List<OptionsResource>> getAll() {
-        List<OptionsResource> optionsResources = OptionsService.getAllOptionsResources();
+    public ResponseEntity<List<OptionsResource>> getAll(@RequestParam(name = "analysisId", required = false) UUID analysisId) {
+
+        List<OptionsResource> optionsResources;
+        if (analysisId != null) {
+            optionsResources = OptionsService.getAllOptionsResourcesByAnalysisId(analysisId);
+        }
+        else {
+            optionsResources = OptionsService.getAllOptionsResources();
+        }
+
         return ResponseEntity.ok(optionsResources);
     }
 

@@ -35,6 +35,12 @@
         from options_criterion
     </select>
 
+    <select id="findByAnalysisId" resultMap="OptionsCriterionMap">
+        select <include refid="optionsCriterionFields" />
+        from options_criterion
+        where options_criterion.analysis_id = #{uuid}
+    </select>
+
     <select id="findById" resultMap="OptionsCriterionMap">
         select <include refid="optionsCriterionFields" />
         from options_criterion

@@ -26,6 +26,14 @@ public class CriteriaService {
                 .map(CriteriaService::criteriaToCriteriaResource);
     }
 
+    public static List<CriteriaResource> getAllCriteriaResourcesByAnalysisId(UUID analysisId) {
+        List<Criteria> criteria = criteriaMapper.findByAnalysisId(analysisId);
+        List<CriteriaResource> criteriaResources = criteria.stream()
+                .map(CriteriaService::criteriaToCriteriaResource)
+                .collect(Collectors.toList());
+        return criteriaResources;
+    }
+
     public static List<CriteriaResource> getAllCriteriaResources() {
         List<Criteria> criteria = criteriaMapper.findAll();
         List<CriteriaResource> criteriaResources = criteria.stream()

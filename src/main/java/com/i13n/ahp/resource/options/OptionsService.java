@@ -26,6 +26,14 @@ public class OptionsService {
                 .map(OptionsService::optionsToOptionsResource);
     }
 
+    public static List<OptionsResource> getAllOptionsResourcesByAnalysisId(UUID analysisId) {
+        List<Options> options = optionsMapper.findByAnalysisId(analysisId);
+        List<OptionsResource> optionsResources = options.stream()
+                .map(OptionsService::optionsToOptionsResource)
+                .collect(Collectors.toList());
+        return optionsResources;
+    }
+
     public static List<OptionsResource> getAllOptionsResources() {
         List<Options> options = optionsMapper.findAll();
         List<OptionsResource> optionsResources = options.stream()

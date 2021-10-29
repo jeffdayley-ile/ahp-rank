@@ -12,6 +12,8 @@ import java.util.UUID;
 public interface CriteriaMapper {
     List<Criteria> findAll();
 
+    List<Criteria> findByAnalysisId(UUID uuid);
+
     Criteria findById(UUID uuid);
 
     int insert(@Param("criteria") Criteria criteria);

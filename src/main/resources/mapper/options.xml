@@ -32,6 +32,12 @@
         from options
     </select>
 
+    <select id="findByAnalysisId" resultMap="OptionsMap">
+        select <include refid="optionsFields" />
+        from options
+        where options.analysis_id = #{uuid}
+    </select>
+
     <select id="findById" resultMap="OptionsMap">
         select <include refid="optionsFields" />
         from options

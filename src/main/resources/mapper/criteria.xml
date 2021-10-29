@@ -38,4 +38,10 @@
         where criteria.id = #{uuid}
     </select>
 
+    <select id="findByAnalysisId" resultMap="CriteriaMap">
+        select <include refid="criteriaFields" />
+        from criteria
+        where criteria.analysis_id = #{uuid}
+    </select>
+
 </mapper>

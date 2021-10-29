@@ -26,6 +26,14 @@ public class OptionsCriterionService {
                 .map(OptionsCriterionService::optionsCriterionToOptionsCriterionResource);
     }
 
+    public static List<OptionsCriterionResource> getAllOptionsCriterionResourcesByAnalysisId(UUID analysisId) {
+        List<OptionsCriterion> optionsCriterion = optionsCriterionMapper.findByAnalysisId(analysisId);
+        List<OptionsCriterionResource> optionsCriterionResources = optionsCriterion.stream()
+                .map(OptionsCriterionService::optionsCriterionToOptionsCriterionResource)
+                .collect(Collectors.toList());
+        return optionsCriterionResources;
+    }
+
     public static List<OptionsCriterionResource> getAllOptionsCriterionResources() {
         List<OptionsCriterion> optionsCriterion = optionsCriterionMapper.findAll();
         List<OptionsCriterionResource> optionsCriterionResources = optionsCriterion.stream()

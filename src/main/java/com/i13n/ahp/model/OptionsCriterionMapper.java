@@ -12,6 +12,8 @@ import java.util.UUID;
 public interface OptionsCriterionMapper {
     List<OptionsCriterion> findAll();
 
+    List<OptionsCriterion> findByAnalysisId(UUID uuid);
+
     OptionsCriterion findById(UUID uuid);
 
     int insert(@Param("optionsCriterion") OptionsCriterion optionsCriterion);

@@ -20,8 +20,16 @@ public class OptionsCriterionController {
     }
 
     @GetMapping(produces = OPTIONS_CRITERION_TYPE)
-    public ResponseEntity<List<OptionsCriterionResource>> getAll() {
-        List<OptionsCriterionResource> optionsCriterionResources = OptionsCriterionService.getAllOptionsCriterionResources();
+    public ResponseEntity<List<OptionsCriterionResource>> getAll(@RequestParam(name = "analysisId", required = false) UUID analysisId) {
+        List<OptionsCriterionResource> optionsCriterionResources;
+
+        if (analysisId != null) {
+            optionsCriterionResources = OptionsCriterionService.getAllOptionsCriterionResourcesByAnalysisId(analysisId);
+        }
+        else {
+            optionsCriterionResources = OptionsCriterionService.getAllOptionsCriterionResources();
+        }
+
         return ResponseEntity.ok(optionsCriterionResources);
     }
 
