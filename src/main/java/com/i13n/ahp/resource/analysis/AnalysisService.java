@@ -63,9 +63,10 @@ public class AnalysisService {
 
         // Create the analysis
         AnalysisResource analysisResource = new AnalysisResource();
+        analysisResource.setName(analysisInputResource.getName());
         analysisResource = createAnalysisResource(analysisResource);
         UUID analysisId = analysisResource.getId();
-        analysisOutputResource.setAnalysisId(analysisId);
+        analysisOutputResource.setAnalysis(analysisResource);
 
         // Create the criteria
         HashMap<String, UUID> criteriaUuids = new HashMap<String, UUID>();
@@ -135,18 +136,21 @@ public class AnalysisService {
     public AnalysisResource createAnalysisResource(AnalysisResource analysisResource) {
         Analysis analysis = createAnalysis(analysisResourceToAnalysis(analysisResource));
         analysisResource.setId(analysis.getId());
+        analysisResource.setName(analysis.getName());
         return analysisResource;
     }
 
     private static Analysis analysisResourceToAnalysis(AnalysisResource analysisResource) {
         Analysis analysis = new Analysis();
         analysis.setId(analysisResource.getId());
+        analysis.setName(analysisResource.getName());
         return analysis;
     }
 
     private static AnalysisResource analysisToAnalysisResource(Analysis analysis) {
         AnalysisResource analysisResource = new AnalysisResource();
         analysisResource.setId(analysis.getId());
+        analysisResource.setName(analysis.getName());
         return analysisResource;
     }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -38,11 +39,11 @@ public class AnalysisController {
     }
 
     @PostMapping(consumes = ANALYSIS_TYPE, produces = ANALYSIS_RETURN_TYPE)
-    public ResponseEntity<AnalysisOutputResource> create(@RequestBody AnalysisInputResource inputResource) {
+    public ResponseEntity<AnalysisOutputResource> create(@RequestBody @Valid AnalysisInputResource inputResource) {
 
         AnalysisOutputResource analysisOutputResource = analysisService.createAnalysisOutputResource(inputResource);
 
         UriComponents location = UriComponentsBuilder.fromPath("analysis/{{uuid}}")
-                .buildAndExpand(analysisOutputResource.getAnalysisId());
+                .buildAndExpand(analysisOutputResource.getAnalysis().getId());
         return ResponseEntity.created(location.toUri()).body(analysisOutputResource);    }
 }

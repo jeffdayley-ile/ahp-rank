@@ -4,7 +4,7 @@ spring:
 #    url: jdbc:h2:~/data/h2/ahp/ahp
     driver-class-name: org.h2.Driver
     username: SA
-    password:
+    password: Pass123
   data:
     jpa:
       repositories:

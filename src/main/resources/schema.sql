@@ -7,7 +7,8 @@ DROP TABLE analysis IF EXISTS;
 
 -- Create the Tables
 CREATE TABLE analysis (
-    id          UUID PRIMARY KEY
+    id          UUID PRIMARY KEY,
+    name        VARCHAR NOT NULL
 );
 
 CREATE TABLE options (
