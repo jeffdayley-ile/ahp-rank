@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class AnalysisOutputResource {
-    private UUID analysisId;
+    private AnalysisResource analysis;
     private List<CriteriaResource> criteria;
     private List<OptionsResource> options;
     private List<OptionsCriterionResource> optionsCriterion;
@@ -17,12 +17,12 @@ public class AnalysisOutputResource {
     public AnalysisOutputResource() {
     }
 
-    public UUID getAnalysisId() {
-        return analysisId;
+    public AnalysisResource getAnalysis() {
+        return analysis;
     }
 
-    public void setAnalysisId(UUID analysisId) {
-        this.analysisId = analysisId;
+    public void setAnalysis(AnalysisResource analysis) {
+        this.analysis = analysis;
     }
 
     public List<CriteriaResource> getCriteria() {

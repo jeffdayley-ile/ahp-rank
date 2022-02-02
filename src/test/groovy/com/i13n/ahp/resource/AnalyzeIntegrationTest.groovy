@@ -51,6 +51,7 @@ class AnalyzeIntegrationTest {
     void testAutomaticAnalysis() {
         // Define Input
         AnalysisInputResource inputResource = new AnalysisInputResource();
+        inputResource.setName("Automatic Analysis Integration Test")
         List<String> criteria = ["cost", "speed"]
         List<String> options = ["aws", "azure"]
         Map<String, List<String>> optionsCriterion = [
@@ -72,13 +73,15 @@ class AnalyzeIntegrationTest {
         assertEquals(SC_CREATED, inputMvcResult.response.status)
 
         String inputJsonResult = inputMvcResult.response.getContentAsString()
-        AnalysisOutputResource inputReturnResource = objectMapper.readValue(inputJsonResult, AnalysisOutputResource)
+        AnalysisOutputResource analysisOutputResource = objectMapper.readValue(inputJsonResult, AnalysisOutputResource)
 
-        assertNotNull(inputReturnResource.getAnalysisId())
-        assertEquals(inputResource.getCriteria().size(), inputReturnResource.getCriteria().size())
-        assertEquals(inputResource.getOptions().size(), inputReturnResource.getOptions().size())
+        assertNotNull(analysisOutputResource.getAnalysis())
+        assertNotNull(analysisOutputResource.getAnalysis().getId())
+        assertEquals(analysisOutputResource.getAnalysis().getName(), inputResource.getName())
+        assertEquals(inputResource.getCriteria().size(), analysisOutputResource.getCriteria().size())
+        assertEquals(inputResource.getOptions().size(), analysisOutputResource.getOptions().size())
         assertEquals(inputResource.getOptions().size() * inputResource.getCriteria().size(),
-            inputReturnResource.getOptionsCriterion().size())
+            analysisOutputResource.getOptionsCriterion().size())
 
     }
 

@@ -4,8 +4,7 @@ import java.util.UUID;
 
 public class AnalysisResource {
     private UUID id;
-
-    // TODO: Add a description of the analysis
+    private String name;
 
     public AnalysisResource() {
     }
@@ -16,5 +15,13 @@ public class AnalysisResource {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
